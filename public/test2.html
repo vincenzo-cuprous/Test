@@ -1,0 +1,510 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <script src="test.js" defer></script>
+    <style>
+                            /* ... (keep the existing styles) ... */
+                /* Include all styles from index.html */
+                :root {
+                    --primary-color: #007bff;
+                    --secondary-color: #6c757d;
+                    --background-color: #f8f9fa;
+                    --text-color: #333;
+                    --white: #ffffff;
+                }
+        
+                * {
+                    margin: 0;
+                    padding: 0;
+                    box-sizing: border-box;
+                }
+        
+                body {
+                    font-family: Arial, sans-serif;
+                    line-height: 1.6;
+                    color: var(--text-color);
+                    background-color: var(--background-color);
+                }
+        
+                .container {
+                    width: 90%;
+                    max-width: 1200px;
+                    margin: 0 auto;
+                    padding: 0 20px;
+                }
+        
+                header {
+                    background-color: var(--white);
+                    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+                    position: fixed;
+                    width: 100%;
+                    top: 0;
+                    z-index: 1000;
+                }
+        
+                nav {
+                    display: flex;
+                    justify-content: space-between;
+                    align-items: center;
+                    padding: 1rem 0;
+                }
+        
+                .logo {
+                    display: flex;
+                    align-items: center;
+                    gap: 1rem;
+                }
+        
+                .logo img {
+                    width: 50px;
+                    height: auto;
+                }
+        
+                .logo-text {
+                    font-size: 1.5rem;
+                    font-weight: bold;
+                    color: var(--primary-color);
+                }
+        
+                .nav-links {
+                    display: flex;
+                    gap: 1rem;
+                }
+        
+                .nav-links a {
+                    text-decoration: none;
+                    color: var(--text-color);
+                    font-weight: bold;
+                    transition: color 0.3s ease;
+                }
+        
+                .nav-links a:hover {
+                    color: var(--primary-color);
+                }
+        
+                .dropdown {
+                    position: relative;
+                }
+        
+                .dropdown-content {
+                    display: none;
+                    position: absolute;
+                    background-color: var(--white);
+                    min-width: 160px;
+                    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+                    z-index: 1;
+                    border-radius: 4px;
+                }
+        
+                .dropdown-content a {
+                    color: var(--text-color);
+                    padding: 12px 16px;
+                    text-decoration: none;
+                    display: block;
+                }
+        
+                .dropdown:hover .dropdown-content {
+                    display: block;
+                }
+        
+                main {
+                    margin-top: 80px;
+                    padding: 2rem 0;
+                }
+        
+                section {
+                    background-color: var(--white);
+                    border-radius: 8px;
+                    padding: 2rem;
+                    margin-bottom: 2rem;
+                    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+                    opacity: 0;
+                    transform: translateY(20px);
+                    transition: opacity 0.5s, transform 0.5s;
+                }
+        
+                section.visible {
+                    opacity: 1;
+                    transform: translateY(0);
+                }
+        
+                h1, h2 {
+                    color: var(--primary-color);
+                    margin-bottom: 1rem;
+                }
+        
+                p {
+                    margin-bottom: 1rem;
+                }
+        
+                .btn {
+                    display: inline-block;
+                    background-color: var(--primary-color);
+                    color: var(--white);
+                    padding: 0.5rem 1rem;
+                    border-radius: 4px;
+                    text-decoration: none;
+                    font-weight: bold;
+                    transition: background-color 0.3s ease;
+                }
+        
+                .btn:hover {
+                    background-color: #0056b3;
+                }
+        
+                footer {
+                    background-color: var(--secondary-color);
+                    color: var(--white);
+                    text-align: center;
+                    padding: 1rem 0;
+                    margin-top: 2rem;
+                }
+        
+                #menu-toggle {
+                    display: none;
+                }
+        
+                #dynamic-text {
+                    min-height: 1.6em;
+                }
+        
+                .cursor {
+                    display: inline-block;
+                    width: 2px;
+                    height: 1em;
+                    background-color: var(--text-color);
+                    margin-left: 2px;
+                    animation: blink 0.7s infinite;
+                }
+        
+                @keyframes blink {
+                    0%, 100% { opacity: 1; }
+                    50% { opacity: 0; }
+                }
+        
+                @media (max-width: 768px) {
+                    .nav-links {
+                        display: none;
+                        flex-direction: column;
+                        position: absolute;
+                        top: 100%;
+                        left: 0;
+                        width: 100%;
+                        background-color: var(--white);
+                        padding: 1rem;
+                        box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+                    }
+        
+                    .nav-links.active {
+                        display: flex;
+                    }
+        
+                    .dropdown-content {
+                        position: static;
+                        box-shadow: none;
+                        display: none;
+                    }
+        
+                    .dropdown.active .dropdown-content {
+                        display: block;
+                    }
+        
+                    #menu-toggle {
+                        display: block;
+                        background: none;
+                        border: none;
+                        font-size: 1.5rem;
+                        color: var(--primary-color);
+                        cursor: pointer;
+                    }
+                }
+                /* Additional styles for books page */
+                .search-bar {
+                    margin-bottom: 2rem;
+                }
+        
+                .search-bar input {
+                    width: 100%;
+                    padding: 0.5rem;
+                    font-size: 1rem;
+                    border: 1px solid var(--secondary-color);
+                    border-radius: 4px;
+                }
+        
+                .book-grid {
+                    display: grid;
+                    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+                    gap: 2rem;
+                }
+        
+                .book-item {
+                    background-color: var(--white);
+                    border-radius: 8px;
+                    padding: 1rem;
+                    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+                    cursor: pointer;
+                    transition: transform 0.3s ease;
+                }
+        
+                .book-item:hover {
+                    transform: translateY(-5px);
+                }
+        
+                .book-item img {
+                    width: 100%;
+                    height: 200px;
+                    object-fit: cover;
+                    border-radius: 4px;
+                    margin-bottom: 1rem;
+                }
+        
+                .book-preview {
+                    position: fixed;
+                    top: 50%;
+                    left: 50%;
+                    transform: translate(-50%, -50%);
+                    background-color: var(--white);
+                    padding: 2rem;
+                    border-radius: 8px;
+                    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+                    z-index: 1000;
+                    max-width: 80%;
+                    max-height: 80%;
+                    overflow-y: auto;
+                    display: none;
+                }
+        
+                .book-preview.active {
+                    display: block;
+                }
+        
+                .close-preview {
+                    position: absolute;
+                    top: 1rem;
+                    right: 1rem;
+                    font-size: 1.5rem;
+                    cursor: pointer;
+                }
+        
+                .comment-section {
+                    margin-top: 2rem;
+                }
+        
+                .comment-form textarea {
+                    width: 100%;
+                    padding: 0.5rem;
+                    margin-bottom: 1rem;
+                }
+        
+                .comments-list {
+                    list-style-type: none;
+                }
+        
+                .comment-item {
+                    background-color: var(--background-color);
+                    padding: 1rem;
+                    margin-bottom: 1rem;
+                    border-radius: 4px;
+                }
+                /* Add these new styles for admin functionality */
+                #admin-login-form, #admin-panel {
+                    display: none;
+                    background-color: var(--white);
+                    padding: 2rem;
+                    border-radius: 8px;
+                    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+                    margin-bottom: 2rem;
+                }
+        
+                #admin-login-form.active, #admin-panel.active {
+                    display: block;
+                }
+        
+                .form-group {
+                    margin-bottom: 1rem;
+                }
+        
+                .form-group label {
+                    display: block;
+                    margin-bottom: 0.5rem;
+                }
+        
+                .form-group input {
+                    width: 100%;
+                    padding: 0.5rem;
+                    border: 1px solid var(--secondary-color);
+                    border-radius: 4px;
+                }
+        
+                #books-table {
+                    width: 100%;
+                    border-collapse: collapse;
+                    margin-top: 1rem;
+                }
+        
+                #books-table th, #books-table td {
+                    border: 1px solid var(--secondary-color);
+                    padding: 0.5rem;
+                    text-align: left;
+                }
+        
+                #books-table th {
+                    background-color: var(--primary-color);
+                    color: var(--white);
+                }
+        
+                /* New Yaki */
+                .admin-comment {
+                    background-color: #f0f0f0;
+                    padding: 10px;
+                    margin-bottom: 10px;
+                    border-radius: 4px;
+                }
+                .admin-comment-actions {
+                    margin-top: 5px;
+                }
+                .admin-comment-actions button {
+                    margin-right: 5px;
+                }
+                #backupBtn, #restoreBtn {
+    margin-left: 10px;
+}
+    </style>
+    <!-- <script src="book_scripts/interaction.js" defer></script> -->
+    <!-- <link rel="stylesheet" href="books_style.css"> -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="keywords" content="Islamic books, Quran, Hadith, Islamic research, Prophet Muhammad, Islamic content">
+    <meta name="description" content="Explore a rich collection of Islamic books and research articles on Jamshed Research. Learn about the Quran, Hadith, and more.">
+    <title>Books - J.I.R.C</title>
+</head>
+<body>
+    <article>
+
+        <header>
+            <div class="container">
+            <nav>
+                <!-- ... (keep the existing navigation items) ... -->
+                <div class="logo">
+                    <img src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/WhatsApp_Image_2024-10-19_at_5.56.15_PM-removebg-preview-K5W7hikBjLVTdAEZK7CpyIgN251wMA.png" alt="JIC Logo">
+                    <span class="logo-text">Books</span>
+                </div>
+                <button id="menu-toggle">☰</button>
+                <div class="nav-links">
+                    <!-- ... (keep the existing navigation links) ... -->
+                    <a href="index.html">Home</a>
+                    <a href="books.html">Books</a>
+                    <!-- <a href="islamic.html">Islamic Content</a> -->
+                    <div class="dropdown">
+                        <a href="#help">Help</a>
+                        <div class="dropdown-content">
+                            <a href="#contact">About Us</a>
+                            <a href="#contact">Contact Us</a>
+                            <a href="#whatsapp">WhatsApp</a>
+                            <a href="#facebook">Facebook</a>
+                            <a href="#instagram">Instagram</a>
+                            <a href="#twitter">Twitter</a>
+                            <a href="#telegram">Telegram</a>
+                        </div>
+                    </div>
+                    <a href="#" id="books-admin-btn">Books Admin</a>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <main class="container">
+        <div id="admin-login-form">
+            
+            <h2>Admin Login</h2>
+            <form id="login-form">
+                <div class="form-group">
+                    <label for="username">Username:</label>
+                    <input type="text" id="username" required>
+                </div>
+                <div class="form-group">
+                    <label for="password">Password:</label>
+                    <input type="password" id="password" required>
+                </div>
+                <button type="submit" class="btn">Login</button>
+            </form>
+        </div>
+
+        <div id="admin-panel">
+            <h2>Books Admin Panel</h2>
+            <button id="logout-btn" class="btn">Logout</button>
+            <button id="change-username-btn" class="btn">Change Username</button>
+            <button id="change-password-btn" class="btn">Change Password</button>
+            <form id="add-book-form">
+                <h3>Add/Edit Book</h3>
+                <div class="form-group">
+                    <label for="book-title">Title:</label>
+                    <input type="text" id="book-title" required>
+                </div>
+                <div class="form-group">
+                    <label for="book-image">Image URL:</label>
+                    <input type="url" id="book-image" required>
+                </div>
+                <div class="form-group">
+                    <label for="book-description">Description:</label>
+                    <textarea id="book-description" required></textarea>
+                </div>
+                <div class="form-group">
+                    <label for="book-download">Download URL:</label>
+                    <input type="url" id="book-download" required>
+                </div>
+                <button type="submit" class="btn">Add/Update Book</button>
+            </form>
+            <table id="books-table">
+                <thead>
+                    <tr>
+                        <th>Title</th>
+                        <th>Actions</th>
+                    </tr>
+                </thead>
+                <tbody></tbody>
+            </table>
+        </div>
+
+        <section id="books-section">
+            <!-- ... (keep the existing books section content) ... -->
+
+            
+            <h1>Islamic Books</h1>
+            <div class="search-bar">
+                <input type="text" id="book-search" placeholder="Search for books...">
+            </div>
+            <div class="book-grid" id="book-grid">
+                <!-- Book items will be dynamically added here -->
+            </div>
+        </section>
+    </main>
+    
+
+    <!-- ... (keep the existing book preview and footer sections) ... -->
+    <div class="book-preview" id="book-preview">
+        <span class="close-preview" id="close-preview">&times;</span>
+        <h2 id="preview-title"></h2>
+        <img id="preview-image" src="" alt="Book cover">
+        <p id="preview-description"></p>
+        <a href="#" id="preview-download" class="btn" download>Download</a>
+        <div class="comment-section">
+            <h3>Comments</h3>
+            <form id="comment-form" class="comment-form">
+                <textarea id="comment-text" placeholder="Leave a comment..."></textarea>
+                <button type="submit" class="btn">Submit Comment</button>
+            </form>
+            <ul id="comments-list" class="comments-list">
+                <!-- Comments will be dynamically added here -->
+            </ul>
+        </div>
+    </div>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2024 Jamshed Islamic Research Center. All rights reserved.</p>
+        </div>
+    </footer>
+</article>
+</body>
+</html>

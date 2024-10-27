@@ -1,0 +1,70 @@
+{
+  "books": [
+    {
+      "id": "1",
+      "title": "To Kill a Mockingbird",
+      "author": "Harper Lee",
+      "image": "https://example.com/mockingbird.jpg",
+      "description": "A classic novel about racial injustice and the loss of innocence in a small Southern town.",
+      "downloadUrl": "#",
+      "comments": [
+        {
+          "id": "1729993111468",
+          "name": "df",
+          "text": "dff"
+        }
+      ]
+    },
+    {
+      "id": "2",
+      "title": "1984",
+      "author": "George Orwell",
+      "image": "https://example.com/1984.jpg",
+      "description": "A dystopian novel set in a totalitarian society, exploring themes of mass surveillance and control.",
+      "downloadUrl": "#",
+      "comments": [
+        {
+          "id": "1729993133851",
+          "name": "dd",
+          "text": "ddf"
+        }
+      ]
+    },
+    {
+      "id": "3",
+      "title": "Pride and Prejudice",
+      "author": "Jane Austen",
+      "image": "https://example.com/pride.jpg",
+      "description": "A romantic novel following the emotional development of Elizabeth Bennet in Georgian England.",
+      "downloadUrl": "#",
+      "comments": []
+    },
+    {
+      "id": "4",
+      "title": "The Great Gatsby",
+      "author": "F. Scott Fitzgerald",
+      "image": "https://example.com/gatsby.jpg",
+      "description": "A novel depicting the lavish lifestyle of wealthy Americans during the Roaring Twenties.",
+      "downloadUrl": "#",
+      "comments": []
+    },
+    {
+      "id": "5",
+      "title": "Moby Dick",
+      "author": "Herman Melville",
+      "image": "https://example.com/mobydick.jpg",
+      "description": "An epic tale of one man's obsessive quest for revenge against a giant white whale.",
+      "downloadUrl": "#",
+      "comments": []
+    },
+    {
+      "id": "6",
+      "title": "War and Peace",
+      "author": "Leo Tolstoy",
+      "image": "https://example.com/war-and-peace.jpg",
+      "description": "A historical novel that chronicles the French invasion of Russia and its impact on Tsarist society.",
+      "downloadUrl": "#",
+      "comments": []
+    }
+  ]
+}
