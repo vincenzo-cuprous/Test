@@ -2,7 +2,6 @@ require('dotenv').config();
 const express = require('express');
 const fs = require('fs').promises;
 const path = require('path');
-const os = require('os');
 
 const app = express();
 const port = process.env.PORT || 3000;
@@ -11,39 +10,16 @@ const port = process.env.PORT || 3000;
 app.use(express.json());
 app.use(express.static('public'));
 
-// Database file path
-const dbFile = process.env.VERCEL 
-  ? path.join(os.tmpdir(), 'db.json')
-  : path.join(__dirname, 'db.json');
-
 // Read database
 async function readDB() {
-  try {
-    const data = await fs.readFile(dbFile, 'utf8');
-    return JSON.parse(data);
-  } catch (error) {
-    // If file doesn't exist, return default structure
-    return { books: [] };
-  }
+  const data = await fs.readFile('db.json', 'utf8');
+  return JSON.parse(data);
 }
 
 // Write database
 async function writeDB(data) {
-  await fs.writeFile(dbFile, JSON.stringify(data, null, 2));
+  await fs.writeFile('db.json', JSON.stringify(data, null, 2));
 }
-
-// Initialize database if it doesn't exist
-async function initDB() {
-  try {
-    await fs.access(dbFile);
-  } catch {
-    // File doesn't exist, create it with default structure
-    await writeDB({ books: [] });
-  }
-}
-
-// Initialize database
-initDB();
 
 // Routes
 app.get('/api/books', async (req, res) => {
