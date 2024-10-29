@@ -1,23 +1,26 @@
-# Use a Node.js base image
-FROM node:14-alpine
+# Use Node.js 16 as the base image
+FROM node:16-alpine
 
-# Set the working directory
-WORKDIR /app
+# Install build tools for bcrypt
+RUN apk add --no-cache make gcc g++ python3
 
-# Copy the package.json and package-lock.json files
+# Create app directory
+WORKDIR /usr/src/app
+
+# Copy package files
 COPY package*.json ./
 
 # Install dependencies
-RUN npm ci
+RUN npm install
 
-# Copy the rest of the application code
+# Copy app source
 COPY . .
 
-# Build the static files
-RUN npm run build
+# Create a directory for the database if it doesn't exist
+RUN mkdir -p /usr/src/app/data
 
-# Expose the port your Express.js app is running on (e.g., 3000)
+# Expose port
 EXPOSE 3000
 
-# Set the command to start the Express.js app
-CMD ["npm", "start"]
+# Start the application
+CMD ["node", "server.js"]

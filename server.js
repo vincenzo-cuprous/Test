@@ -12,8 +12,8 @@ app.use(express.json());
 app.use(express.static('public'));
 
 // Database file path
-const dbFile = process.env.VERCEL 
-  ? path.join(os.tmpdir(), 'db.json')
+const dbFile = process.env.DOCKER 
+  ? path.join('/usr/src/app/data', 'db.json')
   : path.join(__dirname, 'db.json');
 
 // Read database
