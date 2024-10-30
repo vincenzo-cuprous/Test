@@ -2,97 +2,79 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <script src="index_script.js" defer></script>
+    <link rel="icon" href="https://i.ibb.co/xfkKrfL/Whats-App-Image-2024-10-23-at-1-18-04-PM-removebg-preview.png" type="image/x-icon">
+    <link rel="stylesheet" href="index_style.css">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Book Haven</title>
-    <link rel="stylesheet" href="test.css">
+    <meta name="keywords" content="Islamic books, Quran, Hadith, Islamic research, Prophet Muhammad, Islamic content">
+    <meta name="description" content="Explore a rich collection of Islamic books and research articles on Jamshed Research. Learn about the Quran, Hadith, and more.">
+    <title>J.I.R.C</title>
 </head>
 <body>
-    <header>
-        <div class="container">
-            <nav>
-                <a href="#" class="logo">Book Haven</a>
-                <button class="menu-toggle" aria-label="Toggle navigation menu">☰</button>
+    <article>
+
+        <header>
+            <div class="container">
+                <nav>
+                    <div class="logo">
+                        <img src="https://i.ibb.co/xfkKrfL/Whats-App-Image-2024-10-23-at-1-18-04-PM-removebg-preview.png" alt="JIC Logo" class="logo-img">
+                        <span class="logo-text">Jamshed Islamic Research Center</span>
+                    </div>
+                <button id="menu-toggle">☰</button>
                 <div class="nav-links">
-                    <a href="#">Home</a>
-                    <a href="#">Books</a>
-                    <a href="#" id="adminLink">Books Admin</a>
+                    <a href="index.html">Home</a>
+                    <a href="books.html">Books</a>
+                    <!-- <a href="islamic.html">Islamic Content</a> -->
+                    <div class="dropdown">
+                        <a href="#help">Help</a>
+                        <div class="dropdown-content">
+                            <a href="#telegram">About Us</a>
+                            <a href="#contact">Contact Us</a>
+                            <a href="#whatsapp">WhatsApp</a>
+                            <a href="#facebook">Facebook</a>
+                            <a href="#instagram">Instagram</a>
+                            <a href="#twitter">Twitter</a>
+                            <a href="#telegram">Telegram</a>
+                        </div>
+                    </div>
                 </div>
             </nav>
         </div>
     </header>
 
-    <main>
-        <div class="container">
-            <div class="books-grid" id="booksGrid"></div>
-        </div>
+    <main class="container">
+        <section id="home">
+            <h1>Welcome To Our Website 🙏</h1>
+            <p id="dynamic-text">We will Give You The Best Content About Islam 🕌</p>
+            <span class="cursor"></span>
+        </section>
+
+        <section id="books">
+            <h2>We Will Provide You Books 📕</h2>
+            <a href="books.html" class="btn">Explore</a>
+        </section>
+
+        <!-- <section id="islamic-content">
+            <h2>We Also Provide Some Of The Islamic Content 📖</h2>
+            <a href="islamic.html" class="btn">Explore</a>
+        </section> -->
+
+        <section id="about-us">
+            <h2>Click It If You Want To Know, Who Are Us? 😯</h2>
+            <a href="#" class="btn">Click</a>
+        </section>
+
+        <section id="back-to-top">
+            <h2>Click It If You Want To Go Back 🏠</h2>
+            <a href="#home" class="btn" id="back-to-top-btn">Click</a>
+        </section>
     </main>
-
-    <div class="preview-overlay" id="previewOverlay">
-        <div class="preview-content">
-            <button class="close-preview" aria-label="Close preview">&times;</button>
-            <img src="" alt="" class="preview-image" id="previewImage">
-            <h2 class="preview-title" id="previewTitle"></h2>
-            <p class="preview-author" id="previewAuthor"></p>
-            <p class="preview-description" id="previewDescription"></p>
-            <a href="#" class="download-btn" id="downloadBtn" download>Download Book</a>
-            <div class="comment-section">
-                <h3>Comments</h3>
-                <form class="comment-form" id="commentForm">
-                    <input type="text" id="commentName" placeholder="Your Name" required>
-                    <textarea id="commentText" placeholder="Your Comment" required></textarea>
-                    <button type="submit">Submit Comment</button>
-                </form>
-                <ul class="comments-list" id="commentsList"></ul>
-            </div>
-        </div>
-    </div>
-
-    <div class="admin-overlay" id="adminOverlay">
-        <div class="admin-content">
-            <h2>Books Admin</h2>
-            <div id="loginForm">
-                <form class="admin-form">
-                    <input type="text" id="username" placeholder="Username" required>
-                    <input type="password" id="password" placeholder="Password" required>
-                    <button type="submit">Login</button>
-                </form>
-            </div>
-            <div id="adminPanel" style="display: none;">
-                <h3>Add/Edit Book</h3>
-                <form class="admin-form" id="bookForm">
-                    <input type="text" id="bookTitle" placeholder="Title" required>
-                    <input type="text" id="bookAuthor" placeholder="Author" required>
-                    <input type="url" id="bookImage" placeholder="Image URL" required>
-                    <input type="url" id="bookDownload" placeholder="Download URL" required>
-                    <textarea id="bookDescription" placeholder="Description" required></textarea>
-                    <button type="submit">Add/Update Book</button>
-                </form>
-                <div class="admin-books" id="adminBooks"></div>
-                <h3>Comment Management</h3>
-                <div id="adminComments"></div>
-                <h3>User Settings</h3>
-                <form class="admin-form" id="userSettingsForm">
-                    <h3>Backup and Restore</h3>
-<div class="backup-restore">
-  <button id="backupBtn">Backup Data</button>
-  <button id="restoreBtn">Restore Data</button>
-  <input type="file" id="restoreFile" accept=".json" style="display: none;">
-</div>
-                    <input type="text" id="newUsername" placeholder="New Username">
-                    <input type="password" id="newPassword" placeholder="New Password">
-                    <button type="submit">Update Settings</button>
-                </form>
-                <button id="logoutBtn">Logout</button>
-            </div>
-        </div>
-    </div>
 
     <footer>
         <div class="container">
-            <p>&copy; 2024 Book Haven. All rights reserved.</p>
+            <p>&copy; 2024 Jamshed Islamic Research Center. All rights reserved.</p>
         </div>
     </footer>
-
-    <script src="test4.js"></script>
+        </article>
 </body>
 </html>
