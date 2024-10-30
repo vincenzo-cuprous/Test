@@ -2,7 +2,6 @@
   let books = [];
   let currentBookIndex = 0;
   let adminCredentials = {};
-
   // Fetch books from the server
   async function fetchBooks() {
       const response = await fetch('/api/books');
