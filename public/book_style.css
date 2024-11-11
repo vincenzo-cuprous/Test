@@ -666,3 +666,40 @@
       margin-right: 0;
     }
   }
+
+  /* More Additional Stylings: */
+
+  /* Navigation link styles */
+.nav-links {
+    display: flex;
+    align-items: center;
+}
+
+.nav-link {
+    display: flex;
+    align-items: center;
+    padding: 8px 12px;
+    color: #4a5568;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.nav-link:hover {
+    color: #2d3748;
+}
+
+.nav-link svg {
+    margin-right: 8px;
+}
+
+/* Responsive styles */
+@media (max-width: 768px) {
+    .nav-links {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .nav-link {
+        padding: 12px 0;
+    }
+}
