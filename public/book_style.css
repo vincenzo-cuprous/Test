@@ -509,3 +509,160 @@
         background-color: #0066cc;
     }
 }
+
+
+/* Additional Styles of Backup and restore */
+
+
+/* Backup and Restore Styles */
+.backup-restore {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 20px;
+  }
+  
+  .backup-restore button {
+    padding: 10px 15px;
+    font-size: 14px;
+    color: #fff;
+    background-color: #4a5568;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+  .backup-restore button:hover {
+    background-color: #2d3748;
+  }
+  
+  #backupBtn {
+    background-color: #48bb78;
+  }
+  
+  #backupBtn:hover {
+    background-color: #38a169;
+  }
+  
+  #restoreBtn {
+    background-color: #4299e1;
+  }
+  
+  #restoreBtn:hover {
+    background-color: #3182ce;
+  }
+  
+  /* Responsive styles */
+  @media (max-width: 600px) {
+    .backup-restore {
+      flex-direction: column;
+      align-items: stretch;
+    }
+  
+    .backup-restore button {
+      margin-bottom: 10px;
+    }
+  }
+
+
+  /* Now it is the additional styles of logout button: */
+
+  /* Logout Button Styles */
+.logout-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 10px 15px;
+    font-size: 16px;
+    color: #fff;
+    background-color: #e53e3e;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    margin-top: 20px;
+  }
+  
+  .logout-btn:hover {
+    background-color: #c53030;
+  }
+  
+  .logout-btn svg {
+    margin-right: 8px;
+  }
+  
+  /* Responsive styles */
+  @media (max-width: 600px) {
+    .logout-btn {
+      width: 100%;
+    }
+  }
+
+
+  /* More Styles for the Book List */
+
+  /* Icon Button Styles */
+.icon-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 10px 15px;
+    font-size: 14px;
+    color: #fff;
+    background-color: #4a5568;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    margin-right: 10px;
+    margin-bottom: 10px;
+  }
+  
+  .icon-btn:hover {
+    background-color: #2d3748;
+  }
+  
+  .icon-btn svg {
+    margin-right: 8px;
+  }
+  
+  /* Specific button colors */
+  #backupBtn {
+    background-color: #48bb78;
+  }
+  
+  #backupBtn:hover {
+    background-color: #38a169;
+  }
+  
+  #restoreBtn {
+    background-color: #4299e1;
+  }
+  
+  #restoreBtn:hover {
+    background-color: #3182ce;
+  }
+  
+  .edit-btn {
+    background-color: #ed8936;
+  }
+  
+  .edit-btn:hover {
+    background-color: #dd6b20;
+  }
+  
+  .delete-btn {
+    background-color: #e53e3e;
+  }
+  
+  .delete-btn:hover {
+    background-color: #c53030;
+  }
+  
+  /* Responsive styles */
+  @media (max-width: 600px) {
+    .icon-btn {
+      width: 100%;
+      margin-right: 0;
+    }
+  }

@@ -68,6 +68,22 @@
                 </form>
             </div>
             <div id="adminPanel" style="display: none;">
+                <!-- Add this inside the admin panel div -->
+<h3>Backup and Restore</h3>
+<div class="backup-restore">
+    <div class="backup-restore">
+        <button id="backupBtn" class="icon-btn">
+          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-download"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="7 10 12 15 17 10"></polyline><line x1="12" y1="15" x2="12" y2="3"></line></svg>
+          <span>Backup Books Data</span>
+        </button>
+        <button id="restoreBtn" class="icon-btn">
+          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-upload"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="17 8 12 3 7 8"></polyline><line x1="12" y1="3" x2="12" y2="15"></line></svg>
+          <span>Restore Books Data</span>
+        </button>
+      </div>
+      
+  <input type="file" id="restoreFile" accept=".json" style="display: none;">
+</div>
                 <h3>Add/Edit Book</h3>
                 <form class="admin-form" id="bookForm">
                     <input type="text" id="bookTitle" placeholder="Title" required>
@@ -75,34 +91,41 @@
                     <input type="url" id="bookImage" placeholder="Image URL" required>
                     <input type="url" id="bookDownload" placeholder="Download URL" required>
                     <textarea id="bookDescription" placeholder="Description" required></textarea>
-                    <button type="submit">Add/Update Book</button>
+                    <button type="submit" class="icon-btn">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-plus-circle"><circle cx="12" cy="12" r="10"></circle><line x1="12" y1="8" x2="12" y2="16"></line><line x1="8" y1="12" x2="16" y2="12"></line></svg>
+                        <span>Add/Update Book</span>
+                      </button>
                 </form>
                 <div class="admin-books" id="adminBooks"></div>
                 <h3>Comment Management</h3>
                 <div id="adminComments"></div>
                 <h3>User Settings</h3>
                 <form class="admin-form" id="userSettingsForm">
-                    <h3>Backup and Restore</h3>
-<div class="backup-restore">
-  <button id="backupBtn">Backup Data</button>
-  <button id="restoreBtn">Restore Data</button>
-  <input type="file" id="restoreFile" accept=".json" style="display: none;">
-</div>
                     <input type="text" id="newUsername" placeholder="New Username">
                     <input type="password" id="newPassword" placeholder="New Password">
-                    <button type="submit">Update Settings</button>
+                    <button type="submit" class="icon-btn">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-save"><path d="M19 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11l5 5v11a2 2 0 0 1-2 2z"></path><polyline points="17 21 17 13 7 13 7 21"></polyline><polyline points="7 3 7 8 15 8"></polyline></svg>
+                        <span>Update Settings</span>
+                      </button>
                 </form>
-                <button id="logoutBtn">Logout</button>
+                <button id="logoutBtn" class="logout-btn">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-log-out">
+                      <path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"></path>
+                      <polyline points="16 17 21 12 16 7"></polyline>
+                      <line x1="21" y1="12" x2="9" y2="12"></line>
+                    </svg>
+                    <span>Logout</span>
+                  </button>
             </div>
         </div>
     </div>
 
     <footer>
         <div class="container">
-            <p>&copy; 2024 Jamshed Research Islamic Center. All rights reserved.</p>
+            <p>&copy; 2024 Jamshaid Research Islamic Center. All rights reserved.</p>
         </div>
     </footer>
 
-    <script src="book_script.js" defer></script>
+    <script src="books_script.js" defer></script>
 </body>
 </html>

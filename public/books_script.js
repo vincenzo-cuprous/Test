@@ -396,3 +396,86 @@ async function fetchBooks() {
    books = await response.json();
    renderBooks();
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// Add these functions at the end of your book_script.js file
+
+// Backup functionality
+document.getElementById('backupBtn').addEventListener('click', async () => {
+    try {
+        const response = await fetch('/api/books');
+        const books = await response.json();
+        const backupData = JSON.stringify(books, null, 2);
+        const blob = new Blob([backupData], { type: 'application/json' });
+        const url = URL.createObjectURL(blob);
+        const a = document.createElement('a');
+        a.href = url;
+        a.download = 'books_backup.json';
+        document.body.appendChild(a);
+        a.click();
+        document.body.removeChild(a);
+        URL.revokeObjectURL(url);
+    } catch (error) {
+        console.error('Backup failed:', error);
+        alert('Backup failed. Please try again.');
+    }
+});
+
+// Restore functionality
+document.getElementById('restoreBtn').addEventListener('click', () => {
+    document.getElementById('restoreFile').click();
+});
+
+document.getElementById('restoreFile').addEventListener('change', async (event) => {
+    const file = event.target.files[0];
+    if (file) {
+        try {
+            const content = await file.text();
+            const restoredBooks = JSON.parse(content);
+            
+            // Confirm before overwriting
+            if (confirm('Are you sure you want to restore this data? This will overwrite existing books.')) {
+                // Delete all existing books
+                for (let book of books) {
+                    await fetch(`/api/books/${book.id}`, { method: 'DELETE' });
+                }
+                
+                // Add restored books
+                for (let book of restoredBooks) {
+                    await fetch('/api/books', {
+                        method: 'POST',
+                        headers: { 'Content-Type': 'application/json' },
+                        body: JSON.stringify(book)
+                    });
+                }
+                
+                alert('Data restored successfully!');
+                fetchBooks(); // Refresh the book list
+                renderAdminBooks(); // Refresh the admin book list
+            }
+        } catch (error) {
+            console.error('Restore failed:', error);
+            alert('Restore failed. Please check the file and try again.');
+        }
+    }
+});
