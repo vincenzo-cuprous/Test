@@ -433,6 +433,178 @@
                 }
             }
         </style>
+        <style>
+            :root {
+                --primary: #6c63ff;
+                --text: #333333;
+                --background: #ffffff;
+                --card-bg: #f3f4f6;
+            }
+
+            * {
+                margin: 0;
+                padding: 0;
+                box-sizing: border-box;
+            }
+
+            body {
+                font-family:
+                    system-ui,
+                    -apple-system,
+                    BlinkMacSystemFont,
+                    "Segoe UI",
+                    Roboto,
+                    sans-serif;
+                background-color: var(--background);
+                color: var(--text);
+                line-height: 1.6;
+            }
+
+            .container {
+                max-width: 1200px;
+                margin: 0 auto;
+                padding: 2rem;
+            }
+
+            header {
+                padding: 1rem 0;
+                border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+            }
+
+            nav {
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+            }
+
+            .logo {
+                display: flex;
+                align-items: center;
+                gap: 1rem;
+            }
+
+            .logo-img {
+                width: 50px;
+                height: 50px;
+            }
+
+            .nav-links a {
+                color: var(--text);
+                text-decoration: none;
+                margin-left: 2rem;
+                transition: color 0.3s ease;
+            }
+
+            .nav-links a:hover {
+                color: var(--primary);
+            }
+
+            .hero {
+                text-align: center;
+                padding: 4rem 0;
+                animation: fadeIn 1s ease-out;
+            }
+
+            .hero h1 {
+                font-size: 3rem;
+                margin-bottom: 1rem;
+                background: linear-gradient(45deg, #6c63ff, #ff6b6b);
+                -webkit-background-clip: text;
+                -webkit-text-fill-color: transparent;
+            }
+
+            .social-section {
+                margin: 4rem 0;
+                display: grid;
+                grid-template-columns: 1fr;
+                gap: 4rem;
+            }
+
+            .social-card {
+                background-color: var(--card-bg);
+                border-radius: 1rem;
+                padding: 2rem;
+                box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+                transition: transform 0.3s ease;
+                animation: slideUp 0.5s ease-out;
+            }
+
+            .social-card:hover {
+                transform: translateY(-5px);
+            }
+
+            .profile-image {
+                width: 200px;
+                height: 200px;
+                border-radius: 50%;
+                margin: 0 auto 2rem;
+                display: block;
+                border: 4px solid var(--primary);
+                object-fit: cover;
+            }
+
+            .social-title {
+                font-size: 1.5rem;
+                color: var(--primary);
+                margin-bottom: 1rem;
+                text-align: center;
+            }
+
+            .social-content {
+                text-align: center;
+                font-size: 1.1rem;
+                color: var(--text);
+            }
+
+            .social-link {
+                display: inline-block;
+                margin-top: 1rem;
+                padding: 0.5rem 1rem;
+                background-color: var(--primary);
+                color: var(--background);
+                text-decoration: none;
+                border-radius: 0.5rem;
+                transition: background-color 0.3s ease;
+            }
+
+            .social-link:hover {
+                background-color: #5753e0;
+            }
+
+            @keyframes fadeIn {
+                from {
+                    opacity: 0;
+                }
+                to {
+                    opacity: 1;
+                }
+            }
+
+            @keyframes slideUp {
+                from {
+                    opacity: 0;
+                    transform: translateY(20px);
+                }
+                to {
+                    opacity: 1;
+                    transform: translateY(0);
+                }
+            }
+
+            @media (max-width: 768px) {
+                .container {
+                    padding: 1rem;
+                }
+
+                .hero h1 {
+                    font-size: 2rem;
+                }
+
+                .nav-links {
+                    display: none;
+                }
+            }
+        </style>
     </head>
     <body>
         <nav class="navbar">
@@ -454,7 +626,7 @@
             </button>
             <div class="nav-links" id="navLinks">
                 <div class="nav-item">
-                    <a href="#top">
+                    <a href="index.html">
                         <svg viewBox="0 0 24 24" width="24" height="24">
                             <path
                                 fill="currentColor"
@@ -531,7 +703,7 @@
 
                     <div class="social-card">
                         <img
-                            src="/placeholder.svg?height=200&width=200"
+                            src="https://i.ibb.co/FnVKKyC/IMG20240520092623.jpg"
                             alt="Developer"
                             class="profile-image"
                         />
@@ -541,7 +713,7 @@
                             features and Islamic content additions.
                         </p>
                         <a
-                            href="https://www.facebook.com/vincenzo.cazzano.dev"
+                            href="https://www.facebook.com/profile.php?id=61556817747141"
                             class="social-link"
                             target="_blank"
                             rel="noopener noreferrer"
